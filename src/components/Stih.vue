@@ -1,17 +1,21 @@
 <template>
-    <div>
-        Я вас любил: любовь еще, быть может,<br/>
-В душе моей угасла не совсем;<br/>
-Но пусть она вас больше не тревожит;<br/>
-Я не хочу печалить вас ничем.<br/>
-Я вас любил безмолвно, безнадежно,<br/>
-То робостью, то ревностью томим;<br/>
-Я вас любил так искренно, так нежно,<br/>
-Как дай вам бог любимой быть другим.<br/>
-    </div>
+    <select v-model="selected">
+  <option v-for="option in options" v-bind:value="option.value">
+    {{ option.text }}
+  </option>
+</select>
 </template>
 <script>
-export default {
-    
-}
+  export default {
+    data() {
+      return {
+        selected: null,
+        options: [
+          { value: 1, text: 'Please select an option' },
+          { value: 2, text: 'This is First option' },
+          { value: 3, text: 'Selected Option' }
+        ]
+      }
+    }
+  }
 </script>

@@ -1,286 +1,290 @@
 <template >
-  <div v-if="next === 1">Question1</div>
+  <div v-if="next === 1">Какую погоду вы предпочитаете?</div>
     <input v-if="next === 1"
   type="radio"
   value="Солнечную"
   :checked="picked == 'One'"
+  id="one"
   @change="e => picked = e.target.value"
-/>
+/> <label v-if="next === 1" for="one">Солнечную</label>
+  
 <input v-if="next === 1"
   type="radio"
   value="Пасмурную"
   :checked="picked == 'Two'"
+  id="two"
   @change="e => picked = e.target.value"
-/>
+/><label v-if="next === 1" for="one">Пасмурную</label>
 <input v-if="next === 1"
   type="radio"
   value="Ветренная"
   :checked="picked == 'One'"
+  id="three"
   @change="e => picked = e.target.value"
-/>
-
-
-<span v-if="next === 1">{{ picked }}</span>
-<button v-if=" next === 1" @click=" next = 2,  this.answers.push(picked)" >Далее</button>
+/> <label v-if="next === 1" for="one">Ветренную</label>
 
 
 
+<button v-if=" next === 1" @click=" next = 2,  this.answers.push(this.picked)" >Далее</button>
 
 
 
 
-<div v-if="next === 2">Question2</div>
+
+
+
+<div v-if="next === 2">В какой местности вы любите отдыхать?</div>
     <input v-if="next === 2"
   type="radio"
   value="Лесная"
   :checked="picked == 'One'"
   @change="e => picked = e.target.value"
-/>
+/> <label v-if="next === 2" for="one">Лесная</label>
 <input v-if="next === 2"
   type="radio"
   value="Сельская"
   :checked="picked == 'Two'"
   @change="e => picked = e.target.value"
-/>
+/> <label v-if="next === 2" for="one">Сельская</label>
 <input v-if="next === 2"
   type="radio"
   value="Горная"
   :checked="picked == 'One'"
   @change="e => picked = e.target.value"
-/>
-<span v-if="next === 2">{{ picked }}</span>
+/> <label v-if="next === 2" for="one">Горная</label>
 
 
-<button @click="next = 3, this.answers.push(picked)" v-if=" next === 2">Далее</button>
+
+<button @click="next = 3, this.answers.push(this.picked)" v-if=" next === 2">Далее</button>
 
 <button @click="GPT()">Посмотреть результаты</button>
 
 
 
 
-<!-- <div v-if="next === 3">Question3</div>
+ <div v-if="next === 3">Сколько вам лет?</div>
     <input v-if="next === 3"
   type="radio"
-  value="Answer7"
+  value="меньше 18 лет"
   :checked="picked == 'One'"
   @change="e => picked = e.target.value"
-/>
+/> <label v-if="next === 3" for="one">меньше 18 лет</label>
 <input v-if="next === 3"
   type="radio"
-  value="Answer8"
+  value="18-44"
   :checked="picked == 'Two'"
   @change="e => picked = e.target.value"
-/>
+/> <label v-if="next === 3" for="one">18-44</label>
 <input v-if="next === 3"
   type="radio"
-  value="Answer9"
+  value="45-70"
   :checked="picked == 'One'"
   @change="e => picked = e.target.value"
-/>
-
-
-<span v-if="next === 3">{{ picked }}</span>
-<button @click="next = 4, this.answers.push(picked)" v-if=" next === 3"  >Далее</button>
+/> <label v-if="next === 3" for="one">45-70</label>
 
 
 
+<button @click="next = 4, this.answers.push(this.picked)" v-if=" next === 3"  >Далее</button>
 
 
 
-<div v-if="next === 4">Question4</div>
+
+
+
+<div v-if="next === 4">На какой бюджет вы рассчитываете?</div>
     <input v-if="next === 4"
   type="radio"
-  value="Answer10"
+  value="меньше 10000"
   :checked="picked == 'One'"
   @change="e => picked = e.target.value"
-/>
+/> <label v-if="next === 4" for="one">меньше 10000</label>
 <input v-if="next === 4"
   type="radio"
-  value="Answer11"
+  value="меньше 50000"
   :checked="picked == 'Two'"
   @change="e => picked = e.target.value"
-/>
+/> <label v-if="next === 4" for="one">меньше 50000</label>
 <input v-if="next === 4"
   type="radio"
-  value="Answer12"
+  value="до 100000 и больше"
   :checked="picked == 'One'"
   @change="e => picked = e.target.value"
-/>
-<span v-if="next === 4">{{ picked }}</span>
-
-
-<button @click="next = 5, this.answers.push(picked)" v-if=" next === 4">Далее</button> 
+/> <label v-if="next === 4" for="one">до 100000 и больше</label>
 
 
 
+<button @click="next = 5, this.answers.push(this.picked)" v-if=" next === 4">Далее</button> 
 
 
 
-<div v-if="next === 5">Question5</div>
+
+
+
+<div v-if="next === 5">Какой тип размещения вы предпочитаете?</div>
     <input v-if="next === 5"
   type="radio"
-  value="Answer13"
+  value="Отель"
   :checked="picked == 'One'"
   @change="e => picked = e.target.value"
-/>
+/> <label v-if="next === 5" for="one">Отель</label>
 <input v-if="next === 5"
   type="radio"
-  value="Answer14"
+  value="Кемпинг"
   :checked="picked == 'Two'"
   @change="e => picked = e.target.value"
-/>
+/> <label v-if="next === 5" for="one">Кемпинг</label>
 <input v-if="next === 5"
   type="radio"
-  value="Answer15"
+  value="Частный дом"
   :checked="picked == 'One'"
   @change="e => picked = e.target.value"
-/>
-
-
-<span v-if="next === 5">{{ picked }}</span>
-<button v-if=" next === 5" @click=" next = 6,this.answers.push(picked)" >Далее</button>
+/> <label v-if="next === 5" for="one">Частный дом</label>
 
 
 
+<button v-if=" next === 5" @click=" next = 6,this.answers.push(this.picked)" >Далее</button>
 
 
 
-<div v-if="next === 6">Question6</div>
+
+
+
+<div v-if="next === 6">Какой тип отдыха вы предпочитаете?</div>
     <input v-if="next === 6"
   type="radio"
-  value="Answer16"
+  value="Активный(горные лыжи, пещие прогулки и т.д)"
   :checked="picked == 'One'"
   @change="e => picked = e.target.value"
-/>
+/> <label v-if="next === 6" for="one">Активный(горные лыжи, пещие прогулки и т.д)</label>
 <input v-if="next === 6"
   type="radio"
-  value="Answer17"
+  value="Пляжный"
   :checked="picked == 'Two'"
   @change="e => picked = e.target.value"
-/>
+/> <label v-if="next === 6" for="one">Пляжный</label>
 <input v-if="next === 6"
   type="radio"
-  value="Answer18"
+  value="Культурный"
   :checked="picked == 'One'"
   @change="e => picked = e.target.value"
-/>
-<span v-if="next === 6">{{ picked }}</span>
-
-
-<button @click=" next = 7, this.answers.push(picked)" v-if=" next === 6">Далее</button> 
+/> <label v-if="next === 6" for="one">Культурный</label>
 
 
 
-<div v-if="next === 7">Question7</div>
+<button @click=" next = 7, this.answers.push(this.picked)" v-if=" next === 6">Далее</button> 
+
+
+
+<div v-if="next === 7">Какой тип транспорта предпочитаете использовать для поездки?</div>
     <input v-if="next === 7"
   type="radio"
-  value="Answer19"
+  value="Автомобиль"
   :checked="picked == 'One'"
   @change="e => picked = e.target.value"
-/>
+/> <label v-if="next === 7" for="one">Автомобиль</label>
 <input v-if="next === 7"
   type="radio"
-  value="Answer20"
+  value="Поезд"
   :checked="picked == 'Two'"
   @change="e => picked = e.target.value"
-/>
+/> <label v-if="next === 7" for="one">Поезд</label>
 <input v-if="next === 7"
   type="radio"
-  value="Answer21"
+  value="Пешим способом"
   :checked="picked == 'One'"
   @change="e => picked = e.target.value"
-/>
-<span v-if="next === 7">{{ picked }}</span>
-
-
-<button @click=" next = 8, this.answers.push(picked)" v-if=" next === 7">Далее</button> 
+/> <label v-if="next === 7" for="one">Пешим способом</label>
 
 
 
+<button @click=" next = 8, this.answers.push(this.picked)" v-if=" next === 7">Далее</button> 
 
 
-<div v-if="next === 8">Question8</div>
+
+
+
+<div v-if="next === 8">Предпочитаете ли вы:</div>
     <input v-if="next === 8"
   type="radio"
-  value="Answer22"
+  value="Туры"
   :checked="picked == 'One'"
   @change="e => picked = e.target.value"
-/>
+/> <label v-if="next === 8" for="one">Туры</label>
 <input v-if="next === 8"
   type="radio"
-  value="Answer23"
+  value="Экскурсии"
   :checked="picked == 'Two'"
   @change="e => picked = e.target.value"
-/>
+/> <label v-if="next === 8" for="one">Экскурсии</label>
 <input v-if="next === 8"
   type="radio"
-  value="Answer24"
+  value="Самостоятельные путешествия"
   :checked="picked == 'One'"
   @change="e => picked = e.target.value"
-/>
-<span v-if="next === 8">{{ picked }}</span>
-
-
-<button @click=" next = 9,this.answers.push(picked)" v-if=" next === 8">Далее</button> 
+/> <label v-if="next === 8" for="one">Самостоятельные путешествия</label>
 
 
 
+<button @click=" next = 9,this.answers.push(this.picked)" v-if=" next === 8">Далее</button> 
 
 
-<div v-if="next === 9">Question9</div>
+
+
+
+<div v-if="next === 9">Примерная цель вашей поездки:</div>
     <input v-if="next === 9"
   type="radio"
-  value="Answer25"
+  value="Отдохнуть"
   :checked="picked == 'One'"
   @change="e => picked = e.target.value"
-/>
+/> <label v-if="next === 9" for="one">Отдохнуть</label>
 <input v-if="next === 9"
   type="radio"
-  value="Answer26"
+  value="Узнать больше о родном крае"
   :checked="picked == 'Two'"
   @change="e => picked = e.target.value"
-/>
+/> <label v-if="next === 9" for="one">Узнать больше о родном крае</label>
 <input v-if="next === 9"
   type="radio"
-  value="Answer27"
+  value="Заняться какой-либо местной активностью(лыжи, дайвинг и т.д)"
   :checked="picked == 'One'"
   @change="e => picked = e.target.value"
-/>
-<span v-if="next === 9">{{ picked }}</span>
-
-
-<button @click=" next = 10,this.answers.push(picked)" v-if=" next === 9">Далее</button> 
+/> <label v-if="next === 9" for="one">Заняться какой-либо местной активностью(лыжи, дайвинг и т.д)</label>
 
 
 
+<button @click=" next = 10,this.answers.push(this.picked)" v-if=" next === 9">Далее</button> 
 
 
-<div v-if="next === 10">Question10</div>
+
+
+
+<div v-if="next === 10">Какое питание предпочитаете?</div>
     <input v-if="next === 10"
   type="radio"
-  value="Answer28"
+  value="Умеренное"
   :checked="picked == 'One'"
   @change="e => picked = e.target.value"
-/>
+/> <label v-if="next === 10" for="one">Умеренное</label>
 <input v-if="next === 10"
   type="radio"
-  value="Answer29"
+  value="Вегетарианское"
   :checked="picked == 'Two'"
   @change="e => picked = e.target.value"
-/>
+/> <label v-if="next === 10" for="one">Вегетарианское</label>
 <input v-if="next === 10"
   type="radio"
-  value="Answer30"
+  value="Национальные местные блюда"
   :checked="picked == 'One'"
   @change="e => picked = e.target.value"
-/>
-<span v-if="next === 10">{{ picked }}</span>
+/> <label v-if="next === 10" for="one">Национальные местные блюда</label>
 
 
-<button @click=" next = 11, this.answers.push(picked)" v-if=" next === 10">Далее</button>  -->
 
+<button @click=" next = 11, this.answers.push(this.picked)" v-if=" next === 10">Далее</button>  
 
-   <button @click="console.log(answers[1])">LOG</button>
+<div v-if="next === 11">{{ this.answerGPT.response }}</div>
+   <button @click="console.log(answers)">LOG</button>
 </template>
 <script>
 export default {
@@ -289,8 +293,8 @@ export default {
     return {
       picked: '',
       next: 1,
-       answers: []
-        
+       answers: [],
+      answerGPT: ''
       
     }
     
@@ -307,15 +311,42 @@ const options = {
 		'X-RapidAPI-Host': 'chatgpt-gpt4-ai-chatbot.p.rapidapi.com'
 	},
 	body: JSON.stringify ({
-		query: `Подбери пользователю место, в котором он может отдохнуть в Кемеровской области в кузбассе, если он:
-                      предпочитает ${this.answers[0]} погоду и ${this.answers[1]} местность `
+		query: `Подбери пользователю место, в котором он может отдохнуть в Кемеровской области в кузбассе, порекомендуй занятия и активности,заведения для питания и проживания в соответствии с его
+    бюджетом, возрастом и остальными параметрами если он:
+                      предпочитает
+                       ${this.answers[0]} погоду,
+                       ${this.answers[1]} местность ,
+                       если ему ${this.answers[2]} лет,
+                       он имеет бюждет примерно: ${this.answers[3]},
+                       тип размещения, который он предпочитает: ${this.answers[4]},
+                       тип отдыха, который он предпочитает: ${this.answers[5]},
+                       тип транспорта, который он предпочитает использовать для поездки:${this.answers[6]},
+                       он предпочитает: ${this.answers[7]},
+                       примерная цель его поездки: ${this.answers[8]},
+                       питание, которое он предпочитает: ${this.answers[9]}
+                      основываясь на ресурсах:
+                      https://www.kp.ru/russia/kemerovskaya-oblast/
+                      https://visit-kuzbass.ru/
+                      https://dzen.ru/a/X7dtFmohDxzAOkgO
+
+                      https://visit-kuzbass.ru/blog/vkus-sibiri-chto-poprobovat-v-kuzbasse
+                      https://rsport.ria.ru/20230125/turizm-1847090271.html
+                      https://visit-kuzbass.ru/events/
+                      https://www.nbcrs.org/regions/kemerovskaya-oblast/top-ekskursiy
+                      https://www.stud24.ru/geography/turizm-v-kemerovskoj-oblasti/487753-1893196-page1.html
+
+
+                      и погодных данных в месте, куда ты порекомендуешь съездить:
+                      https://www.gismeteo.ru/catalog/russia/kemerovo-oblast/
+                      https://yandex.ru/pogoda/region/11282
+                      https://weather.rambler.ru/world/rossiya/kemerovskaya-oblast/`
 	})
 };
 
 try {
 	const response = await fetch(url, options);
-	const result = await response.text();
-	console.log(result);
+	this.answerGPT = await response.json();
+	console.log(this.answerGPT);
 } catch (error) {
 	console.error(error);
 }
