@@ -298,29 +298,23 @@ export default {
   methods: {
     async GPT(){
         
-      const url = 'https://chatgpt-chatgpt3-5-chatgpt4.p.rapidapi.com/gpt4';
+      const url = 'https://chatgpt-gpt4-ai-chatbot.p.rapidapi.com/ask';
 const options = {
 	method: 'POST',
 	headers: {
 		'content-type': 'application/json',
 		'X-RapidAPI-Key': 'd6e4a3a2b8mshcc934869fcd57f7p1b1a8bjsn394b2082772b',
-		'X-RapidAPI-Host': 'chatgpt-chatgpt3-5-chatgpt4.p.rapidapi.com'
+		'X-RapidAPI-Host': 'chatgpt-gpt4-ai-chatbot.p.rapidapi.com'
 	},
-	body: {
-		model: 'gpt-4-0613',
-		messages: [
-			{
-				role: 'user',
-				content: 'hello'
-			}
-		],
-		temperature: 0.8
-	}
+	body: JSON.stringify ({
+		query: `Подбери пользователю место, в котором он может отдохнуть в Кемеровской области в кузбассе, если он:
+                      предпочитает ${this.answers[0]} погоду и ${this.answers[1]} местность `
+	})
 };
 
 try {
 	const response = await fetch(url, options);
-	const result = await response.text(JSON);
+	const result = await response.text();
 	console.log(result);
 } catch (error) {
 	console.error(error);
