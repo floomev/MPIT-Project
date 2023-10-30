@@ -36,7 +36,9 @@
             </div>
         </div>
     </div>
-    
+    <footer>
+        <div class="footer"></div>
+    </footer>
 </template>
 <script>
 export default {
@@ -129,7 +131,7 @@ export default {
     margin-left: 30px;
     border-radius: 100px;
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
   }
   .routerImg {
     background-image: url(../pictures/Приступить.png);
@@ -138,5 +140,13 @@ export default {
     background-size: cover;
     margin-left: 630px;
     margin-top: 530px;
+  }
+  .footer {
+    background-image: url(../pictures/foter.png);
+    width: 1845px;
+    height: 200px;
+    border-radius: 60px;
+    margin-top: 35px;
+    
   }
 </style>
