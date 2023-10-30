@@ -23,6 +23,7 @@
     <button v-if="progress === 1 || progress === 0" @click="showProgress">Результаты</button>
     <div v-if="change === true">Вы выполнили: {{myProgress}} из 2 заданий</div>
     <div v-if="progress === 2" >Выполнено правильно {{ counter }} из 2 заданий</div>
+    
   </div>
 </template>
 
@@ -80,3 +81,13 @@ export default {
   }
 }
 </script>
+<style>
+select {
+  width: 200px;
+  height: 200px;
+}
+option {
+  width: 200px;
+  height: 200px;
+}
+</style>

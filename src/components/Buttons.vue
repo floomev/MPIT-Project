@@ -26,9 +26,11 @@
         </div>
         
     </div>
-    <div>
+    <div class="Find1">
         <div class="Find">
-            <div>
+            <div class="Finderr">
+                <h1>Давай узнаем какое место стоит посетить именно тебе!</h1>
+                <p>Этот опрос поможет выбрать для тебя лучшее место для отдыха.</p>
                 <router-link :to="{name: 'Questions'}"
                 class="router-link">/
             <div class="routerImg"></div>
@@ -139,14 +141,43 @@ export default {
     width: 520px;
     background-size: cover;
     margin-left: 630px;
-    margin-top: 530px;
+    margin-top: 730px;
   }
   .footer {
     background-image: url(../pictures/foter.png);
     width: 1845px;
-    height: 200px;
+    height: 180px;
     border-radius: 60px;
-    margin-top: 35px;
+    margin-top: 50px;
     
+  }
+  .Find1 h1 {
+    margin-top: 400px;
+    margin-left: 490px;
+    position: absolute;
+    color: black;
+    color: #000;
+
+text-align: center;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-size: 55.395px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+width: 818.262px;
+  }
+  .Find1 p {
+    margin-top: 600px;
+    margin-left: 500px;
+    position: absolute;
+    color: black;
+    color: #000;
+text-align: center;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-size: 31.654px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+width: 818.262px;
   }
 </style>

@@ -1,82 +1,150 @@
 <template >
-    <form @submit.prevent="subHandler">
-        <label > Enter a card name
-            <input type="text" name="cardName">
-        </label>
-        <label >Get a card
-            <button>click</button>
-        </label>
+   <div class="top"></div>
+    <div class="card11">
+        <div class="imgm"> <img src="../pictures/Star.png" alt="star" class="img111">
+
+            <router-link :to="{name: 'poem'}"
+            class="router-link"> <img class="img222" src="../pictures/Quiez.png" alt="quiezes">
+            </router-link>
+
+         
+          <img class="img333" src="../pictures/Asker.png" alt="asker">
+          <img class="img444" src="../pictures/Info.png" alt="information">
+        </div>
         
-    </form>
-    <div class="flex">
-        <li class="card" v-for="el in nameCard">
-            {{el.name }}
-            {{el.rarity }}
-            <img v-if="el.img" :src="el?.img " alt="">
-            
-        </li>
+        </div>
+        <div class="textt"><h1>Шерегеш</h1>
+            <p>Популярный горнолыжный курорт, расположенный в Кемеровской области на севере Алтайского края, в России. Этот курорт привлекает тысячи туристов своей красивой природой, богатством снежных склонов и качественными горнолыжными трассами.</p> </div>
+    <div class="card12">
+        <div class="img2">
+            <img src="../pictures/Star.png" alt="star" class="img555">
+
+            <router-link :to="{name: 'poem'}"
+            class="router-link"><img class="img666" src="../pictures/Quiez.png" alt="quiezes"></router-link> 
+
+          <img class="img777" src="../pictures/Asker.png" alt="asker">
+          <img class="img888" src="../pictures/Info.png" alt="information">
+        </div>
+        
+        </div>
+        <div class="text2">
+            <h1>Горная Шория</h1>
+            <p>Территория окруженная величественными горами, каскадными водопадами, глубокими лесами и прекрасными озерами. Это место привлекает туристов своим уникальным природным наследием, богатыми возможностями для активного отдыха и оздоровления.</p>
+        
     </div>
-    
+    <footer >
+        <div class="footer"></div>
+    </footer>
 </template>
 <script>
 export default {
     data () {
      return {
-        nameCard: []
-     }
-    },
-    methods: {
-       async subHandler(){
         
-        const url = 'https://chatgpt-api8.p.rapidapi.com/';
-const options = {
-	method: 'POST',
-	headers: {
-		'content-type': 'application/json',
-		'X-RapidAPI-Key': 'd6e4a3a2b8mshcc934869fcd57f7p1b1a8bjsn394b2082772b',
-		'X-RapidAPI-Host': 'chatgpt-api8.p.rapidapi.com'
-	},
-	body: [
-		{
-			content: `Подбери пользователю место, в котором он может отдохнуть в Кемеровской области в кузбассе, если он:
-                      предпочитает `,
-			role: 'user'
-		}
-	]
-};
-
-try {
-	const response = await fetch(url, options);
-	const result = await response.text();
-	console.log(result);
-} catch (error) {
-	console.error(error);
-}
-        }
+     }
     }
 }
+    
 </script>
 <style>
-    .card {
-    border: 1px solid black;
+   .top {
+    background-image: url(../pictures/TOP.png);
+    width: 888.227px;
+height: 67.851px;
+margin-left: 480px;
+margin-top: 50px;
+   }
+   .card11 {
+    background-image: url(../pictures/Rectangle33.png);
+    width: 1111px;
+    height: 278px;
+    margin: 50px;
    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    margin: 10px;
-    
-    
+   }
+    .textt p {
+        width: 1217px;
+height: 181px;
+color: #000;
+
+font-family: Arial, Helvetica, sans-serif;
+font-size: 30px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+ 
+        
     }
-    img {
-        width: 150px;
+    .textt {
+        margin-left: 111px;
     }
-    .flex{
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        justify-content: space-around;
-        margin-top: 100px;
+    .textt h1 {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+font-size: 70px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+    }
+    .card12 {
+        background-image: url(../pictures/Rectangle34.png);
+        width: 1111px;
+        margin-left: 680px;
+        height: 278px;
+        margin-bottom: 50px;
+    }
+    .text2 h1 {
+        color: #000;
+
+text-align: right;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 70px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+margin-right: 110px;
+    }
+    .text2 p {
+       
+flex-shrink: 0;
+color: #000;
+
+text-align: right;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 30px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+text-align: right;
+margin-left:400px;
+margin-right: 110px;
+    }
+    .text2 {
+        margin-bottom: 100px;
+    }
+    .img111 {
+        margin-top: 220px;
+        margin-left: 100px;
+        margin-right: 20px;
+    }
+    .img222{
+        margin-right: 20px;
+    }
+    .img333 {
+        margin-right: 15px;
+        
+    }
+    .img444{
+        margin-bottom:  1px;
+    }
+    .img555 {
+      margin-top: 218px; 
+      margin-left: 100px; 
+      margin-right: 20px;
+    }
+    .img666 {
+        margin-right: 20px;  
+    }
+    .img777 {
+        margin-right: 15px;  
     }
     
 </style>
