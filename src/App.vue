@@ -4,22 +4,10 @@
 export default {
   data (){
     return {
-      count: 0,
-      isShow: false,
-      answers: []
+      
+      
     }
   },
-methods: {
-  change(number) {
-    this.count = this.count + -number
-  },
-  say(count){
-  alert(this.count)
-  },
-  showFinder() {
-   this.isShow = !this.isShow
-  }
-},
 components: {Finder, Buttons}
 }
 import Finder from './components/Finder.vue'
@@ -27,26 +15,33 @@ import Buttons from './components/Buttons.vue'
 </script>
 
 <template>
- <div>
-  <button @click="change(-1)">+1</button>
-  <button @click="change(1)">-1</button>
-  <h1>Count: {{count}}</h1>
- </div>
+ 
 
  
-<button @click="say(count)">ShowCount</button>
- <Finder v-if="isShow"/>
+
 
  
- <br/>
- <button @click="showFinder">{{isShow?'Hide' : 'Show' }}</button>
- <div>
-  
- </div>
- <div><router-link :to="{name: 'MainPage'}">Main</router-link> <br/>
- <router-link :to="{name: 'Find'}">Finder</router-link> <br/>
- <router-link :to="{name: 'Questions'}">Questions</router-link> <br/>
- <router-link :to="{name: 'poem'}">Poem</router-link>
+ 
+ <div class="nav">
+  <ul>
+    <li class="iLi"><img class="imgg" src="./pictures/kjujnbg.png" alt=""></li><div class="border"></div>
+    <li>
+      <router-link :to="{name: 'MainPage'}" 
+      class="router-link">Главная</router-link> 
+    </li>
+    <div class="border"></div>
+    <li> <router-link :to="{name: 'Find'}" 
+      class="router-link">Места</router-link> </li><div class="border"></div>
+    <li><router-link :to="{name: 'Questions'}"
+      class="router-link">Рейтинг</router-link> </li><div class="border"></div>
+    <li><router-link :to="{name: 'Questions'}"
+      class="router-link">Отдых для тебя</router-link> </li><div class="border"></div>
+    <li><router-link :to="{name: 'poem'}"
+      class="router-link">Профиль</router-link></li>
+  </ul>
+
+ 
+ 
  </div>
  
  <router-view></router-view>
@@ -54,5 +49,63 @@ import Buttons from './components/Buttons.vue'
 </template>
 
 <style>
-
+  .nav ul {
+    display: flex;
+    list-style-type: none;
+    flex-direction:row;
+    
+    margin: 0px;
+   
+    width: 100%px;
+    height: 131px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    
+    justify-content: space-around;
+    
+  }
+   .nav li {
+    display: flex;
+    list-style-type: none;
+    
+    
+    font-size: 25px;
+    width: 200px;
+    height: 131px;
+    justify-content: center;
+    align-items: center;   
+   
+  } 
+  /* .nav {
+    width: 100%;
+    height: 131px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    background-color: grey;
+  } */
+  .imgg {
+    
+    margin-bottom: 10px;
+    width: 200px;
+    height:120 ;
+    
+  }
+  .iLi {
+    margin-bottom: 30px;
+    margin-left: 70px;
+    height: 200px;
+  }
+  .router-link {
+    text-decoration: none;
+    color: black;
+  }
+  .border {
+    
+    height: 80px;
+    border: 0.01px solid black;
+    margin-top: 25px;
+  }
+  
 </style>
